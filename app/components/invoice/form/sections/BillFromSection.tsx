@@ -55,7 +55,7 @@ const BillFromSection = () => {
             />
             <FormInput
                 name="sender.addressLine2"
-                label={_t("form.steps.fromAndTo.addressLine2")}
+                label={_t("Address2")}
                 placeholder="Apartment, suite, etc. (Optional)"
             />
             <FormInput
