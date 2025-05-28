@@ -35,7 +35,10 @@ const InvoiceTemplate = (data: InvoiceType) => {
 					<address className='mt-4 not-italic text-gray-800'>
 						{sender.address}
 						<br />
-						{sender.zipCode}, {sender.city}
+						{sender.addressLine2}, {' '}
+						{sender.city}, 
+						<br />
+						{sender.zipCode}
 						<br />
 						{sender.country}
 						<br />
@@ -49,10 +52,13 @@ const InvoiceTemplate = (data: InvoiceType) => {
 					<h3 className='text-lg font-semibold text-gray-800'>{receiver.name}</h3>
 					{}
 					<address className='mt-2 not-italic text-gray-500'>
-						{receiver.address && receiver.address.length > 0 ? receiver.address : null}
-						{receiver.zipCode && receiver.zipCode.length > 0 ? `, ${receiver.zipCode}` : null}
+						{receiver.address && receiver.address.length > 0 ? receiver.address : null},{' '} 
 						<br />
-						{receiver.city}, {receiver.country}
+						{receiver.addressLine2 && receiver.addressLine2.length > 0 ? receiver.addressLine2 : null}, {''}
+						<br />
+						{receiver.city} {receiver.zipCode && receiver.zipCode.length > 0 ? `, ${receiver.zipCode}` : null}
+						<br />
+						 {receiver.country}
 						<br />
 					</address>
 				</div>
@@ -177,8 +183,8 @@ const InvoiceTemplate = (data: InvoiceType) => {
 						<p className='font-regular text-gray-800'>{details.additionalNotes}</p>
 					</div>
 					<div className='my-2'>
-						<p className='font-semibold text-blue-600'>Payment terms:</p>
-						<p className='font-regular text-gray-800'>{details.paymentTerms}</p>
+						{/* <p className='font-semibold text-blue-600'>Payment terms:</p> */}
+						{/* <p className='font-regular text-gray-800'>{details.paymentTerms}</p> */}
 					</div>
 					<div className='my-2'>
 						<span className='font-semibold text-md text-gray-800'>
